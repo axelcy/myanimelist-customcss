@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   Variables — Dark Palette
+   ============================================================ */
+:root {
+  --bg-base:        #191919;
+  --bg-surface:     #202020;
+  --bg-elevated:    #262626;
+  --bg-hover:       #2f2f2f;
+  --bg-header:      #1a1a1a;
+
+  --border:         #303030;
+  --border-subtle:  #262626;
+
+  --text-primary:   #e4e4e4;
+  --text-secondary: #8a8a8a;
+  --text-muted:     #555555;
+  --text-link:      #7ca3f0;
+
+  /* === Color principal: azul MAL oscurecido para dark mode === */
+  --accent:         #4e7bc4;
+  --accent-hover:   #6090d6;
+  --accent-dim:     rgba(78, 123, 196, 0.12);
+  --accent-bright:  #7ca3f0;
+
+  /* === Status colors — saturados pero no estridentes === */
+  --status-watching:   #3d9e73;
+  --status-completed:  #4e7bc4;
+  --status-hold:       #c49a3d;
+  --status-dropped:    #b85555;
+  --status-plan:       #606060;
+
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  10px;
+  --radius-img: 5px;
+  --radius-pill: 20px;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+
+  --transition: 0.16s ease;
+}
+
+/* ============================================================
+   Base / Body
+   ============================================================ */
+html, body {
+  background-color: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 13px !important;
+}
+
+a {
+  color: var(--text-link) !important;
+  text-decoration: none !important;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover) !important;
+  text-decoration: none !important;
+}
+
+td {
+  line-height: 1.6em;
+}
+
+/* ============================================================
+   Top Header Bar
+   ============================================================ */
+#header-block,
+.header-block,
+div[style*="background-color: #2E51A2"],
+div[style*="background:#2E51A2"] {
+  background-color: var(--bg-header) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.header {
+  color: var(--text-primary) !important;
+}
+
+.header a {
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+}
+
+.header a:hover {
+  color: var(--accent-bright) !important;
+  text-decoration: none !important;
+}
+
+/* ============================================================
+   List Container
+   ============================================================ */
+.list-container {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Cover Block
+   ============================================================ */
+.cover-block {
+  background-color: var(--bg-surface) !important;
+}
+
+/* ============================================================
+   Status Menu (All Anime / Currently Watching / Completed…)
+   ============================================================ */
+.status-menu-container {
+  background-color: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  width: 1058px !important;
+}
+
+.status-menu-container .status-menu .status-button {
+  color: var(--text-muted) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.3em !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+
+.status-menu-container .status-menu .status-button.on {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.status-menu-container .status-menu .status-button:hover {
+  color: var(--text-secondary) !important;
+}
+
+.status-menu-container .status-menu .status-button:after {
+  background-color: var(--accent) !important;
+  height: 2px !important;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Search */
+.status-menu-container .search-container #search-button {
+  color: var(--text-muted) !important;
+  transition: color var(--transition);
+}
+
+.status-menu-container .search-container #search-button:hover {
+  color: var(--text-secondary) !important;
+}
+
+.status-menu-container .search-container #search-box input {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 3px 6px !important;
+  outline: none !important;
+}
+
+/* ============================================================
+   List Status Title ("ALL ANIME" header bar)
+   ============================================================ */
+.list-unit .list-status-title {
+  background-color: var(--bg-elevated) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  height: 42px !important;
+}
+
+.list-unit .list-status-title .text {
+  color: var(--text-secondary) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+  padding-left: 16px !important;
+}
+
+.list-unit .list-status-title .stats a {
+  color: var(--text-muted) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9em !important;
+  transition: color var(--transition);
+}
+
+.list-unit .list-status-title .stats a:hover {
+  color: var(--text-secondary) !important;
+}
+
+/* ============================================================
+   List Table — Header Row
+   ============================================================ */
+.list-table {
+  border: none !important;
+  border-collapse: collapse !important;
+}
+
+.list-table .list-table-header .header-title {
+  background: var(--bg-elevated) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-right: none !important;
+  height: 34px !important;
+}
+
+.list-table .list-table-header .header-title .link {
+  color: var(--text-muted) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.82em !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+
+.list-table .list-table-header .header-title .link.sort {
+  color: var(--text-muted) !important;
+}
+
+.list-table .list-table-header .header-title .link.sort:hover {
+  color: var(--text-secondary) !important;
+}
+
+.list-table .list-table-header .header-title .sort-icon {
+  color: var(--accent) !important;
+}
+
+/* ============================================================
+   List Table — Data Rows
+   ============================================================ */
+
+/* Alternating rows */
+.list-table > tbody:nth-of-type(2n) {
+  background-color: var(--bg-surface) !important;
+}
+
+.list-table > tbody:nth-of-type(2n+1) {
+  background-color: var(--bg-elevated) !important;
+}
+
+/* Row hover */
+.list-table > tbody:hover {
+  background-color: var(--bg-hover) !important;
+  transition: background-color var(--transition);
+}
+
+/* Cell base */
+.list-table .list-table-data .data {
+  padding: 6px 4px !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ---- Image column ---- */
+.list-table .list-table-data .data.image {
+  overflow: visible !important;
+}
+
+.list-table .list-table-data .data.image .image {
+  width: 48px !important;
+  height: 68px !important;
+  border-radius: var(--radius-img) !important;
+  border: 1px solid var(--border) !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.list-table .list-table-data .data.image a:hover .image {
+  transform: scale(1.86) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.85) !important;
+  border-color: var(--accent) !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+/* ---- Title column ---- */
+.list-table .list-table-data .data.title {
+  padding-left: 12px !important;
+  position: relative !important;
+}
+
+.list-table .list-table-data .data.title .link {
+  color: var(--text-primary) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.15em !important;
+  font-weight: 500 !important;
+  transition: color var(--transition);
+}
+
+.list-table .list-table-data .data.title .link:hover {
+  color: var(--accent-bright) !important;
+}
+
+.list-table .list-table-data .data.title .rewatching,
+.list-table .list-table-data .data.title .rereading,
+.list-table .list-table-data .data.title .content-status {
+  color: var(--text-muted) !important;
+  font-size: 0.85em !important;
+}
+
+/* ============================================================
+   "Add notes" / notes area — compact inline, not full-width
+   ============================================================ */
+.list-table .list-table-data .data.title .notes {
+  display: inline !important;
+  width: auto !important;
+}
+
+.list-table .list-table-data .data.title .notes .edit {
+  display: inline !important;
+  color: var(--text-muted) !important;
+  font-size: 0.78em !important;
+  font-style: normal !important;
+  cursor: pointer !important;
+  padding: 1px 5px !important;
+  border-radius: var(--radius-pill) !important;
+  transition: color var(--transition), background-color var(--transition);
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+/* Prepend a small note icon via ::before */
+.list-table .list-table-data .data.title .notes .edit::before {
+  content: "✎ " !important;
+  font-style: normal !important;
+}
+
+.list-table .list-table-data .data.title .notes .edit:hover {
+  color: var(--text-secondary) !important;
+  background-color: var(--bg-hover) !important;
+}
+
+/* When the textarea is visible (editing state), make it full width */
+.list-table .list-table-data .data.title .notes textarea,
+.list-table .list-table-data .tags textarea {
+  width: 90% !important;
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 4px 6px !important;
+  resize: vertical !important;
+  outline: none !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9em !important;
+}
+
+/* ============================================================
+   "Edit - More" action buttons — pill chips, unified blue
+   ============================================================ */
+.list-table .list-table-data .data.title .add-edit-more {
+  position: absolute !important;
+  right: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: auto !important;
+  /* font-size:0 oculta el nodo de texto "-" entre los botones.
+     Los hijos usan px asi que no se ven afectados. */
+  font-size: 0 !important;
+  color: transparent !important;
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 1;
+}
+
+/* Show on row hover */
+.list-table > tbody:hover .add-edit-more {
+  opacity: 1 !important;
+}
+
+/* Edit / Add / More — todos mismos estilos gris suave */
+.list-table .list-table-data .data.title .add-edit-more span.edit a,
+.list-table .list-table-data .data.title .add-edit-more span.add a,
+.list-table .list-table-data .data.title .add-edit-more span.more a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  padding: 2px 7px !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+}
+
+/* Edit gets a pencil icon */
+.list-table .list-table-data .data.title .add-edit-more span.edit a::before {
+  content: "✏" !important;
+  font-size: 10px !important;
+}
+
+/* Add gets a plus icon */
+.list-table .list-table-data .data.title .add-edit-more span.add a::before {
+  content: "+" !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+/* Hover — igual para todos */
+.list-table .list-table-data .data.title .add-edit-more span.edit a:hover,
+.list-table .list-table-data .data.title .add-edit-more span.add a:hover,
+.list-table .list-table-data .data.title .add-edit-more span.more a:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-hover) !important;
+  border-color: var(--text-muted) !important;
+}
+
+/* ============================================================
+   Tags column — "Edit" link styled as gray pill
+   ============================================================ */
+.list-table .list-table-data .tags .edit {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  padding: 2px 9px !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 0.78em !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+  cursor: pointer !important;
+  width: fit-content;
+}
+
+.list-table .list-table-data .tags .edit::before {
+  content: "✏" !important;
+  font-size: 0.9em !important;
+}
+
+.list-table .list-table-data .tags .edit:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-hover) !important;
+  border-color: var(--text-muted) !important;
+}
+
+/* ---- Score column — progress bar via ::after ---- */
+/* Aumentamos un poco el ancho de la celda para que entre la barra mas larga */
+.list-table .list-table-data .data.score {
+  width: 110px !important;
+}
+
+/* El .link es flex para alinear el número con la barra */
+.list-table .list-table-data .data.score .link {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.25em !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+}
+
+/* Hacemos que el span use grid para fijar el ancho del numero y alinear las barras */
+.list-table .list-table-data .data.score .score-label {
+  display: grid !important;
+  grid-template-columns: 22px 1fr !important;
+  width: 100% !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-align: center !important;
+}
+
+/* Track base de la barra (siempre presente en scores 1-10) */
+.list-table .list-table-data .data.score .score-label::after {
+  content: '' !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  background-color: var(--bg-hover) !important;
+  /* El fill se sobreescribe por clase con currentColor */
+  background-image: linear-gradient(to right, currentColor 0%, transparent 0%) !important;
+}
+
+/* 10 → dorado, 100% */
+.list-table .list-table-data .data.score .score-label.score-10 {
+  color: #e8c84a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-10::after {
+  background-image: linear-gradient(to right, #e8c84a 100%, transparent 0%) !important;
+}
+
+/* 9 → verde, 90% */
+.list-table .list-table-data .data.score .score-label.score-9 {
+  color: #5abf8a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-9::after {
+  background-image: linear-gradient(to right, #5abf8a 90%, transparent 0%) !important;
+}
+
+/* 8 → verde, 80% */
+.list-table .list-table-data .data.score .score-label.score-8 {
+  color: #5abf8a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-8::after {
+  background-image: linear-gradient(to right, #5abf8a 80%, transparent 0%) !important;
+}
+
+/* 7 → verde, 70% */
+.list-table .list-table-data .data.score .score-label.score-7 {
+  color: #5abf8a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-7::after {
+  background-image: linear-gradient(to right, #5abf8a 70%, transparent 0%) !important;
+}
+
+/* 6 → gris, 60% */
+.list-table .list-table-data .data.score .score-label.score-6 {
+  color: var(--text-secondary) !important;
+}
+.list-table .list-table-data .data.score .score-label.score-6::after {
+  background-image: linear-gradient(to right, var(--text-secondary) 60%, transparent 0%) !important;
+}
+
+/* 5 → gris, 50% */
+.list-table .list-table-data .data.score .score-label.score-5 {
+  color: var(--text-secondary) !important;
+}
+.list-table .list-table-data .data.score .score-label.score-5::after {
+  background-image: linear-gradient(to right, var(--text-secondary) 50%, transparent 0%) !important;
+}
+
+/* 4 → rojo, 40% */
+.list-table .list-table-data .data.score .score-label.score-4 {
+  color: #c46a6a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-4::after {
+  background-image: linear-gradient(to right, #c46a6a 40%, transparent 0%) !important;
+}
+
+/* 3 → rojo, 30% */
+.list-table .list-table-data .data.score .score-label.score-3 {
+  color: #c46a6a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-3::after {
+  background-image: linear-gradient(to right, #c46a6a 30%, transparent 0%) !important;
+}
+
+/* 2 → rojo, 20% */
+.list-table .list-table-data .data.score .score-label.score-2 {
+  color: #c46a6a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-2::after {
+  background-image: linear-gradient(to right, #c46a6a 20%, transparent 0%) !important;
+}
+
+/* 1 → rojo, 10% */
+.list-table .list-table-data .data.score .score-label.score-1 {
+  color: #c46a6a !important;
+}
+.list-table .list-table-data .data.score .score-label.score-1::after {
+  background-image: linear-gradient(to right, #c46a6a 10%, transparent 0%) !important;
+}
+
+/* Sin puntuar — sin barra y centrado en toda la celda */
+.list-table .list-table-data .data.score .score-label.score-na {
+  color: var(--text-muted) !important;
+  font-weight: 400 !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+}
+.list-table .list-table-data .data.score .score-label.score-na::after {
+  display: none !important;
+}
+
+/* ---- Type column ---- */
+/* El texto de tipo (TV, ONA, Movie…) es un nodo de texto directo en el td,
+   no un <a> ni un span, así que no podemos hacer un badge sin JS.
+   Lo estilizamos de forma limpia y legible. */
+.list-table .list-table-data .data.type {
+  color: var(--text-muted) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.82em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+/* ---- Progress column ---- */
+.list-table .list-table-data .data.progress {
+  color: var(--text-secondary) !important;
+  font-size: 0.9em !important;
+}
+
+.list-table .list-table-data .data.progress .progress-link {
+  color: var(--text-secondary) !important;
+}
+
+/* ---- Status sidebar color strip ---- */
+.list-table .list-table-data .data.status {
+  width: 3px !important;
+}
+
+.list-table .list-table-data .data.status.watching {
+  background-color: var(--status-watching) !important;
+}
+
+.list-table .list-table-data .data.status.completed {
+  background-color: var(--status-completed) !important;
+}
+
+.list-table .list-table-data .data.status.onhold {
+  background-color: var(--status-hold) !important;
+}
+
+.list-table .list-table-data .data.status.dropped {
+  background-color: var(--status-dropped) !important;
+}
+
+.list-table .list-table-data .data.status.plantowatch,
+.list-table .list-table-data .data.status.plantoread {
+  background-color: var(--status-plan) !important;
+}
+
+/* ---- More info row (expanded details) ---- */
+.list-table .more-info {
+  background-color: var(--bg-elevated) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.list-table .more-info .more-content {
+  color: var(--text-secondary) !important;
+}
+
+/* ============================================================
+   List Stats Bar
+   ============================================================ */
+.list-unit .list-stats {
+  background-color: var(--bg-elevated) !important;
+  color: var(--text-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* ============================================================
+   Floating Side Menu
+   ============================================================ */
+.list-menu-float {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+  /* NO overflow:hidden — ese propery clipea la expansion de hover
+     de 50px → 145px que hace cada .icon-menu al hacer hover */
+}
+
+.list-menu-float .icon-menu {
+  background-color: var(--bg-elevated) !important;
+  transition: background-color var(--transition), width var(--transition) !important;
+}
+
+.list-menu-float .icon-menu svg.icon {
+  fill: var(--text-muted) !important;
+}
+
+.list-menu-float .icon-menu:not(.profile):hover {
+  background-color: var(--accent) !important;
+  width: 145px !important;
+}
+
+.list-menu-float .icon-menu:hover svg.icon {
+  fill: #ffffff !important;
+}
+
+/* Fix: nuestro 'a { color: var(--text-link) !important }' global sobrescribe
+   el color blanco del texto del sidebar. Lo restauramos aqui con mayor especificidad. */
+.list-menu-float .icon-menu .text {
+  color: #ffffff !important;
+}
+
+.list-menu-float .icon-menu:hover .text {
+  color: #ffffff !important;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  border-top: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+/* ============================================================
+   Advanced Options / Filters Dropdown
+   ============================================================ */
+#advanced-options {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+#advanced-options .advanced-options-header {
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header {
+  color: var(--text-secondary) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+#advanced-options .advanced-options-button {
+  border-top: 1px solid var(--border) !important;
+}
+
+#advanced-options select,
+#advanced-options input[type=text] {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+#advanced-options .sort-widget input[type=radio] + label {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-sm) !important;
+  transition: background-color var(--transition);
+}
+
+#advanced-options .sort-widget input[type=radio]:checked + label {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+#advanced-options .btn-apply,
+#advanced-options .btn-clear {
+  background-color: var(--accent) !important;
+  border-radius: var(--radius-md) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  transition: background-color var(--transition) !important;
+}
+
+#advanced-options .btn-apply:hover,
+#advanced-options .btn-clear:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+#footer-block {
+  background-color: var(--bg-header) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+}
+
+#copyright {
+  color: var(--text-muted) !important;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484848;
+}
+
+/* ============================================================
+   Misc — header dropdown menu
+   ============================================================ */
+.header .header-menu .list-menu {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.header .header-menu .list-menu .icon-menu {
+  color: var(--text-secondary) !important;
+}
+
+.header .header-menu .list-menu .icon-menu:hover {
+  background-color: var(--accent-dim) !important;
+  color: var(--text-primary) !important;
+}
+
+.header .header-menu .list-menu .icon-menu svg.icon {
+  fill: var(--text-secondary) !important;
+}
+
+/* ============================================================
+   Loading indicator
+   ============================================================ */
+.list-unit .loading-space {
+  color: var(--text-muted) !important;
+}
